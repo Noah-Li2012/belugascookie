@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NoahLi HackOS</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: "Courier New", monospace;
+      padding: 20px;
+    }
+
+    .console {
+      white-space: pre-wrap;
+      font-size: 1.1em;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+
+    #cursor {
+      display: inline-block;
+      width: 10px;
+      background: #00ff00;
+      animation: blink 0.8s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="console" id="console">
+    Booting...
+  </div>
+
+  <script>
+    const lines = [
+      ">>> Booting NoahLi HackOS...",
+      ">>> Connecting to target device...",
+      ">>> Injecting payload into Discord client...",
+      ">>> Extracting friend list and chat history...",
+      ">>> Uploading data to NoahNet...",
+      ">>> Finalizing backdoor installation...",
+      ">>> Executing operation: R.I.C.K.",
+      ">>> Target will be redirected. Operation irreversible.",
+      ">>> Goodbye."
+    ];
+
+    const consoleEl = document.getElementById('console');
+    let i = 0;
+
+    function typeLine() {
+      if (i < lines.length) {
+        consoleEl.innerHTML += "\n" + lines[i];
+        i++;
+        setTimeout(typeLine, 1000);
+      } else {
+        setTimeout(() => {
+          // Rickroll time!
+          window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }, 1500);
+      }
+    }
+
+    window.onload = function () {
+      setTimeout(() => {
+        consoleEl.innerHTML = "";
+        typeLine();
+      }, 1000);
+    };
+  </script>
+</body>
+</html>
